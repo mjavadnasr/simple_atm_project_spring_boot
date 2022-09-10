@@ -2,7 +2,7 @@
 
 simple simulation of atm project 
 **************************************************
-api's : 
+api's : /n
 1-login
 2-10 least transactions
 3-transaction
