@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Transaction</title>
+
+
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div class="alert alert-danger" role="alert" th:text="${myerror}" th:if="${myerror}"></div>
+<div align="center">
+    <h1>Transaction</h1>
+<!--    <form action="#" th:action="@{/transaction/}" method="post" th:object="${transaction}">-->
+<!--        <label>Account Number:</label>-->
+<!--        <input type="text" th:field="*{receiver}"/><br/>-->
+
+<!--        <label>Balance:</label>-->
+<!--        <input type="text" th:field="*{Balance}"/><br/>-->
+<!--        <button type="submit">Transfer</button>-->
+
+
+<!--    </form>-->
+
+
+    <form th:action="@{/transaction/}" th:object="${transaction}" method="post" class="form">
+        <div class="form-group">
+            <label>Account Number:</label>
+            <input class="form-control" type="text" th:field="*{receiver}" id="receiver" placeholder="Account Number">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('receiver')}" th:errors="*{receiver}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="Balance">Balance</label>
+            <input class="form-control" type="text" th:field="*{Balance}" id="Balance" placeholder="Balance">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('balance')}" th:errors="*{balance}"></div>
+        </div>
+        <input type="submit"  class="btn btn-success" value="Transfer">
+    </form>
+</div>
+
+
+</body>
+</html>

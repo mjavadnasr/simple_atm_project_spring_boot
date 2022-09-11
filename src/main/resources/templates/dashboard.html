@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+
+<h1>
+    <span  th:remove="tag">Welcome</span>
+    <small th:text="${username}" >username</small>
+</h1>
+
+<a th:href="@{/account/remain}">MY REMAIN MONEY</a>
+<br>
+<br>
+<a th:href="@{/transaction/}">LET'S HAVE A TRANSACTION</a>
+<br>
+<br>
+<a th:href="@{/account/transaction}">MY 10 LEAST TRANSACTIONS</a>
+<br>
+<br>
+<br>
+<a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
+
+<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+    <input hidden type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>
